@@ -1,15 +1,14 @@
 "use client";
-import { FieldValues, SubmitHandler } from "react-hook-form";
-import { useForm } from "react-hook-form";
-import axios from 'axios'
-import { headers } from "next/headers";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import axios from 'axios';
+import { useState } from "react";
 
 const Home = () => {
+  const [response, setResponse] = useState({})
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm<FieldValues>({
     defaultValues: {
       name: "",
@@ -17,84 +16,76 @@ const Home = () => {
     },
   });
 
-
-  const fetchdata = async (data : FieldValues)=>{
+  const fetchData = async (data: FieldValues) => {
     const requestData = { username: data.name };
-    if( data.type==="Leetcode" ){
-        const { data } = await axios.post(
-          "/api/scrap/leetcode",
-          requestData,
-          {
-            headers: {
-              "Content-Type": "application /json",
-            },
-          }
-        );
+    let API_URL = "";
+
+    switch (data.type) {
+      case "Leetcode":
+        API_URL = "/api/scrap/leetcode";
+        break;
+      case "GeeksForGeeks":
+        API_URL = "/api/scrap/geeksforgeeks";
+        break;
+      case "Striver":
+        API_URL = "/api/scrap/striver";
+        break;
+      case "CodeForces":
+        API_URL = "/api/scrap/codeforces";
+        break;
+      default:
+        console.error("Invalid type selected");
+        return;
     }
-    else if( data.type === "GeeksForGeeks" ){
-      const { data } = await axios.post("/api/scrap/gfg", requestData, {
-        headers: {
-          "Content-Type": "application /json",
-        },
-      });
+
+    try {
+      const { data } = await axios.post(API_URL, requestData);
+      setResponse(data)
+    } catch (error) {
+      console.error("Error fetching data:", error);
     }
-    else if( data.type === "Striver" ){
-      const { data } = await axios.post("/api/scrap/striver", requestData, {
-        headers: {
-          "Content-Type": "application /json",
-        },
-      });
-    }
-    else if( data.type === "CodeForces" ){
-      const { data } = await axios.post("/api/scrap/codeforces", requestData, {
-        headers: {
-          "Content-Type": "application /json",
-        },
-      });
-    }
-  }
+  };
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    fetchdata(data)
+    fetchData(data);
   };
 
   return (
-    <div className="max-w-80 pt-4 ml-5">
+    <div className="max-w-md mx-auto pt-4 ">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col items-start gap-1"
       >
-        <div className="flex gap-1 text-black">
-          <input
-            type="text"
-            {...register("name", { required: true })}
-            className="text-black pl-2"
-            placeholder="name"
-          />
+        <div className="flex bg-red-50">
+          <div>
+            <input
+              type="text"
+              {...register("name", { required: true })}
+              className="border flex focus-within:outline-none border-gray-300 p-1 text-black"
+              placeholder="Username"
+            />
+            {errors.name && <p className="text-red-500">Username is required</p>}
+          </div>
 
-          <select
-            {...register("type", { required: true })}
-            className="text-black"
-          >
-            <option value="">Select Type</option>
-            <option value="Leetcode">Leetcode</option>
-            <option value="GeeksForGeeks">GeeksForGeeks</option>
-            <option value="Striver">Striver</option>
-            <option value="CodeForces">CodeForces</option>
-          </select>
+          <div className="w-full bg-red-600">
+            <select
+              {...register("type", { required: true })}
+              className="border w-full h-full border-gray-300 p-1 text-black"
+            >
+              <option value="">Select Type</option>
+              <option value="Leetcode">Leetcode</option>
+              <option value="GeeksForGeeks">GeeksForGeeks</option>
+              <option value="Striver">Striver</option>
+              <option value="CodeForces">CodeForces</option>
+            </select>
+          </div>
+          <button type="submit" className="text-black p-1 rounded-sm bg-white">
+            Search
+          </button>
         </div>
+        {errors.type && <p className="text-destructive">Type is required</p>}
 
-        {/* Error message for name */}
-        {errors.name && <p className="text-red-500">Username is required</p>}
-
-        {/* Error message for type */}
-        {errors.type && <p className="text-red-500">Type is required</p>}
-
-        {/* Submit button */}
-        <button type="submit" className="bg-white text-black w-2/3">
-          Search
-        </button>
       </form>
+      <pre>{JSON.stringify(response, null, 2)}</pre>
     </div>
   );
 };
