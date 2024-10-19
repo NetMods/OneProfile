@@ -26,7 +26,7 @@ const Home = () => {
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col items-start gap-1"
       >
-        <input type="text" {...register("name", { required: true })} className="text-black pl-2" placeholder="name"/>
+        <input type="text" {...register("name", { required: true })} className="text-black pl-2" placeholder="name" />
         {errors.username && (
           <p className="text-red-500">Username is required</p>
         )}
