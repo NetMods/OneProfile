@@ -2,6 +2,7 @@
 import { FieldValues, SubmitHandler } from "react-hook-form";
 import { useForm } from "react-hook-form";
 import axios from 'axios'
+import { headers } from "next/headers";
 
 const Home = () => {
   const {
@@ -17,14 +18,39 @@ const Home = () => {
   });
 
 
-  const fetchdata = (data : FieldValues)=>{
-    if(data.type==="Leetcode"){
-      axios.get('/api/scrap/leetcode',data)
-      .then(()=>{})
-      .catch((error)=>{})
-      .finally(()=>{})
-    }else{
-      console.log('working on it')
+  const fetchdata = async (data : FieldValues)=>{
+    const requestData = { username: data.name };
+    if( data.type==="Leetcode" ){
+        const { data } = await axios.post(
+          "/api/scrap/leetcode",
+          requestData,
+          {
+            headers: {
+              "Content-Type": "application /json",
+            },
+          }
+        );
+    }
+    else if( data.type === "GeeksForGeeks" ){
+      const { data } = await axios.post("/api/scrap/gfg", requestData, {
+        headers: {
+          "Content-Type": "application /json",
+        },
+      });
+    }
+    else if( data.type === "Striver" ){
+      const { data } = await axios.post("/api/scrap/striver", requestData, {
+        headers: {
+          "Content-Type": "application /json",
+        },
+      });
+    }
+    else if( data.type === "CodeForces" ){
+      const { data } = await axios.post("/api/scrap/codeforces", requestData, {
+        headers: {
+          "Content-Type": "application /json",
+        },
+      });
     }
   }
 
