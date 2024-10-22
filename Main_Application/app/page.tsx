@@ -48,7 +48,7 @@ const Home = () => {
   };
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    setResponse({})
+    setResponse({});
     fetchData(data);
   };
 
