@@ -1,4 +1,4 @@
-export const SCRAPPE_API_BASE_URL = "http://localhost:5000/";
+export const SCRAPPER_API_BASE_URL = "http://localhost:8080";
 
 export enum OPTIONS {
   LEETCODE = "Leetcode",
