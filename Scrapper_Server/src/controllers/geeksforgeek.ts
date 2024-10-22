@@ -32,12 +32,6 @@ const geeksforgeek = async (request: Request, response: Response) => {
       await page.goto(GFG_URL)
 
       const data = await page.evaluate(()=>{
-        const easytext = document.querySelectorAll(".problemNavbar_head_nav--text__UaGCx")[2]?.textContent.match(/\d+/);
-        const medtext = document.querySelectorAll(".problemNavbar_head_nav--text__UaGCx")[3]?.textContent.match(/\d+/);
-        const hardtext = document.querySelectorAll(".problemNavbar_head_nav--text__UaGCx")[4]?.textContent.match(/\d+/);
-        const easytextnum = easytext? parseInt(easytext[0],10) : "null";
-        const medtextnum = easytext? parseInt(medtext[0],10) : "null";
-        const hardtextnum = easytext? parseInt(hardtext[0],10) : "null";
         return {
           InstituteName: document.querySelector(".educationDetails_head_left--text__tgi9I")?.textContent ?? "null",
           InstituteRank:
@@ -46,9 +40,9 @@ const geeksforgeek = async (request: Request, response: Response) => {
               ?.textContent.split(" ")[0] ?? "null",
           totalProblems: document.querySelectorAll(".scoreCard_head_left--score__oSi_x")[1]?.textContent ?? "null",
           contestRating: document.querySelectorAll(".scoreCard_head_left--score__oSi_x")[2]?.textContent ?? "null",
-          easyProblems: easytextnum,
-          mediumProblems: medtextnum,
-          hardProblems : hardtextnum
+          easyProblems: document.querySelectorAll(".problemNavbar_head_nav--text__UaGCx")[2]?.textContent.match(/\d+/)[0] ?? "null",
+          mediumProblems: document.querySelectorAll(".problemNavbar_head_nav--text__UaGCx")[3]?.textContent.match(/\d+/)[0] ?? "null",
+          hardProblems : document.querySelectorAll(".problemNavbar_head_nav--text__UaGCx")[4]?.textContent.match(/\d+/)[0] ?? "null",
         };
       })
 
