@@ -6,7 +6,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import helmet from "helmet";
 import morganMiddleware from "morgan.logger";
-import router from "router";
+import router from "./router";
 import rateLimit from "express-rate-limit";
 import { notFoundHandler } from "middlewares/errorhandler";
 

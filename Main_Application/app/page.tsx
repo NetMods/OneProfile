@@ -34,6 +34,9 @@ const Home = () => {
       case OPTIONS.CODEFORCES:
         API_URL = "/api/scrap/codeforces";
         break;
+      case OPTIONS.CODECHEF:
+        API_URL = "/api/scrap/codechef";
+        break;
       default:
         console.error("Invalid type selected");
         return;
@@ -43,6 +46,7 @@ const Home = () => {
       const { data } = await axios.post(API_URL, requestData);
       setResponse(data);
     } catch (error) {
+      setResponse(error);
       console.error("Error fetching data:", error);
     }
   };
@@ -75,6 +79,7 @@ const Home = () => {
               <option value={OPTIONS.GFG}>Geeks For Geeks</option>
               <option value={OPTIONS.STRIVER}>Striver</option>
               <option value={OPTIONS.CODEFORCES}>CodeForces</option>
+              <option value={OPTIONS.CODECHEF}>Code Chef</option>
             </select>
           </div>
           <button type="submit" className="text-black p-1 rounded-sm bg-white">
