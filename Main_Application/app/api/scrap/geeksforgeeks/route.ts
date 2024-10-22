@@ -6,7 +6,11 @@ export async function POST(request: Request) {
     try {
         const url = `/api/v1/scrap/geeksforgeek`;
         const {data} =  await axios.post(url,{ username })
-        return NextResponse.json(data,{status:200})
+        return NextResponse.json({
+            success : true,
+            message : "yeah Bitch",
+            data : data.scrappedData
+        },{status:200})
     } catch (error) {
         if (error instanceof Error) {
         return NextResponse.json({
