@@ -5,4 +5,5 @@ export enum OPTIONS {
   GFG = "Geeks For Geeks",
   STRIVER = "Striver",
   CODEFORCES = "Codeforces",
+  CODECHEF = "Code Chef",
 }

@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 export async function POST(request: Request) {
   try {
     const { username } = await request.json();
-    const url = `/api/v1/scrap/striver`;
+    const url = `/api/v1/scrap/codechef`;
     const { data } = await axios.post(url, { username });
 
     return NextResponse.json(
