@@ -43,6 +43,7 @@ const Home = () => {
       const { data } = await axios.post(API_URL, requestData);
       setResponse(data);
     } catch (error) {
+      setResponse(error)
       console.error("Error fetching data:", error);
     }
   };
