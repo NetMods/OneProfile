@@ -3,7 +3,7 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import axios, { isAxiosError } from "axios";
 import { useState } from "react";
 import { OPTIONS } from "@/lib/constants";
-import DropDown from "./components/dropDown/DropDown";
+import DropDown from "../components/DropDown";
 
 const Home = () => {
   const [response, setResponse] = useState({});
@@ -12,7 +12,7 @@ const Home = () => {
     handleSubmit,
     formState: { errors },
     setValue,
-    watch
+    watch,
   } = useForm<FieldValues>({
     defaultValues: {
       name: "",
@@ -20,7 +20,7 @@ const Home = () => {
     },
   });
 
-  const type = watch('type');
+  const type = watch("type");
 
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value, {
@@ -86,7 +86,7 @@ const Home = () => {
               placeholder="Username"
             />
           </div>
-          <DropDown label="Select Type" setValue={setValue}/>
+          <DropDown label="Select Type" setValue={setValue} />
           <button
             type="submit"
             className="text-black p-1 h-8 rounded-sm bg-white"
