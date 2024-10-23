@@ -35,25 +35,41 @@ export const striver = async (request: Request, response: Response): Promise<any
 
     await page.goto(CODEFORCES_URL);
 
-    await page.waitForSelector("span.mt-3", { timeout: 10000 })
+    try {
+      await page.waitForSelector("span.mt-3", { timeout: 10000 })
+    } catch {
+      return response.status(404).json({
+        success: false,
+        error: "URL not found"
+      })
+    }
+
 
     const data = await page.evaluate(() => {
       return {
-        A2Z: document.querySelector('a.flex-col:nth-child(1) > svg:nth-child(1) > text:nth-child(3)')?.textContent ?? "null",
+        a2z: document.querySelector('a.flex-col:nth-child(1) > svg:nth-child(1) > text:nth-child(3)')?.textContent ?? "null",
 
-        SDE: document.querySelector('a.flex:nth-child(2) > svg:nth-child(1) > text:nth-child(3)')?.textContent ?? "null",
+        sde: document.querySelector('a.flex:nth-child(2) > svg:nth-child(1) > text:nth-child(3)')?.textContent ?? "null",
 
-        Last79: document.querySelector('a.flex:nth-child(3) > svg:nth-child(1) > text:nth-child(3)')?.textContent ?? "null",
+        last79: document.querySelector('a.flex:nth-child(3) > svg:nth-child(1) > text:nth-child(3)')?.textContent ?? "null",
       }
     })
 
-    return response.status(200).json({ scrappedData: data });
+    return response.status(200).json({
+      success: true,
+      scrappedData: data,
+    });
+
   } catch (error) {
-    console.error(error);
-    return response.status(500).json({ error });
+    console.log(error)
+
+    return response.status(500).json({
+      success: false,
+      error: error.message
+    })
+
   } finally {
-    await browser.close();
-    console.log("Browser closed");
+    browser.close();
   }
-}
+};
 

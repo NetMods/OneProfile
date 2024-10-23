@@ -1,6 +1,6 @@
 "use client";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import axios from "axios";
+import axios, { isAxiosError } from "axios";
 import { useState } from "react";
 import { OPTIONS } from "@/lib/constants";
 
@@ -43,10 +43,14 @@ const Home = () => {
     }
 
     try {
-      const { data } = await axios.post(API_URL, requestData);
-      setResponse(data);
+      const response = await axios.post(API_URL, requestData);
+      setResponse(response.data);
     } catch (error) {
-      setResponse(error as Error)
+      if (isAxiosError(error)) {
+        if (error.response && error.response.status === 404) {
+          setResponse(error.response.data);
+        }
+      }
       console.error("Error fetching data:", error);
     }
   };
