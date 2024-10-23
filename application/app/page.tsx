@@ -3,6 +3,7 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import axios, { isAxiosError } from "axios";
 import { useState } from "react";
 import { OPTIONS } from "@/lib/constants";
+import DropDown from "./components/dropDown/DropDown";
 
 const Home = () => {
   const [response, setResponse] = useState({});
@@ -10,18 +11,30 @@ const Home = () => {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
+    watch
   } = useForm<FieldValues>({
     defaultValues: {
       name: "",
-      type: "",
+      type: OPTIONS.LEETCODE,
     },
   });
+
+  const type = watch('type');
+
+  const setCustomValue = (id: string, value: any) => {
+    setValue(id, value, {
+      shouldDirty: true,
+      shouldTouch: true,
+      shouldValidate: true,
+    });
+  };
 
   const fetchData = async (data: FieldValues) => {
     const requestData = { username: data.name };
     let API_URL = "";
 
-    switch (data.type) {
+    switch (type) {
       case OPTIONS.LEETCODE:
         API_URL = "/api/scrap/leetcode";
         break;
@@ -61,9 +74,10 @@ const Home = () => {
   };
 
   return (
+    // add this to this class later max-w-md
     <div className="max-w-md mx-auto pt-4 ">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="flex bg-red-50">
+        <div className="flex flex-row gap-1">
           <div>
             <input
               type="text"
@@ -72,21 +86,11 @@ const Home = () => {
               placeholder="Username"
             />
           </div>
-
-          <div className="w-full bg-red-600">
-            <select
-              {...register("type", { required: true })}
-              className="border w-full h-full border-gray-300 p-1 text-black"
-            >
-              <option value="">Select Type</option>
-              <option value={OPTIONS.LEETCODE}>Leetcode</option>
-              <option value={OPTIONS.GFG}>Geeks For Geeks</option>
-              <option value={OPTIONS.STRIVER}>Striver</option>
-              <option value={OPTIONS.CODEFORCES}>CodeForces</option>
-              <option value={OPTIONS.CODECHEF}>Code Chef</option>
-            </select>
-          </div>
-          <button type="submit" className="text-black p-1 rounded-sm bg-white">
+          <DropDown label="Select Type" setValue={setValue}/>
+          <button
+            type="submit"
+            className="text-black p-1 h-8 rounded-sm bg-white"
+          >
             Search
           </button>
         </div>
