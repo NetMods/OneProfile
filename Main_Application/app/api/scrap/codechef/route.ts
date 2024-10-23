@@ -10,7 +10,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         success: true,
-        message: "yeaah bitch",
+        message: `yeaah bitch`,
         data: data.scrappedData,
       },
       { status: 200 }

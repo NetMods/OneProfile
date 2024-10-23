@@ -6,7 +6,7 @@ import { executablePath } from "puppeteer";
 
 puppeteer.use(StealthPlugin());
 
-export const striver = async (request: Request, response: Response): Promise<Response> => {
+export const striver = async (request: Request, response: Response): Promise<any> => {
   const { username } = request.body;
 
   const CODEFORCES_URL = `https://takeuforward.org/profile/${username}`

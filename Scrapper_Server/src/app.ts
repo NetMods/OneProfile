@@ -1,4 +1,5 @@
 import "dotenv/config";
+import { Express } from "express"
 import { createServer } from "http";
 import express from "express";
 import bodyParser from "body-parser";
@@ -15,7 +16,7 @@ const limiter = rateLimit({
   max: 3,
 })
 
-const app = express();
+const app: Express = express();
 
 app.use(
   cors({

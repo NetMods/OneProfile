@@ -6,7 +6,7 @@ import { executablePath } from "puppeteer";
 
 puppeteer.use(StealthPlugin());
 
-export const codechef = async (request: Request, response: Response): Promise<Response> => {
+export const codechef = async (request: Request, response: Response): Promise<any> => {
   const { username } = request.body;
 
   const CODECHEF_URL = `https://www.codechef.com/users/${username}`

@@ -5,7 +5,7 @@ import { executablePath } from "puppeteer";
 
 puppeteer.use(StealthPlugin());
 
-export const codeforces = async (request: Request, response: Response): Promise<Response> => {
+export const codeforces = async (request: Request, response: Response): Promise<any> => {
   const { username } = request.body;
 
   const CODEFORCES_URL = `https://codeforces.com/profile/${username}`
@@ -49,7 +49,7 @@ export const codeforces = async (request: Request, response: Response): Promise<
       }
     })
 
-    return response.status(200).json({ scrappedData: data });
+    return response.status(200).json({ scrapped: data });
   } catch (error) {
     console.error(error);
     return response.status(500).json({ error });
