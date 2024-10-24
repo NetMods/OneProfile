@@ -1,8 +1,9 @@
 "use client";
-import ClientOnly from "@/components/clientonly";
-import MainPage from "@/components/mainpage";
+import ClientOnly from "@/components/client-only";
+import MainPage from "@/components/main-page";
 import Container from "@/components/container";
 import ThemeSwitcher from "@/components/theme-switcher";
+import DockBar from "@/components/footer/dockBar";
 
 const Home = () => {
   return (
@@ -17,7 +18,7 @@ const Home = () => {
           <div className="">body</div>
         </Container>
         <Container small>
-          <div className="">footer</div>
+          <DockBar/>
         </Container>
       </MainPage>
     </ClientOnly>

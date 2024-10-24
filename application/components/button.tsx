@@ -25,11 +25,11 @@ iconsize
 }) => {
   return (
     <div
-    onClick={()=>{
-        onClick?.()
-    }}
-      className={`bg-black text-white font-semibold h-8 flex flex-row gap-1 items-center justify-center p-1
-        ${circleAvatar ? "rounded-full h-12 w-12" : "rounded-md"}
+      onClick={() => {
+        onClick?.();
+      }}
+      className={`bg-bkg text-content font-semibold h-8 flex flex-row gap-1 items-center justify-center p-2 border bottom-1 border-bcol
+        ${circleAvatar ? "rounded-full h-10 w-10" : "rounded-md"}
         ${small && "w-18"}
         ${medium && "w-24"}
         ${contain && "w-full"}
@@ -43,7 +43,7 @@ iconsize
             className="rounded-full w-full h-full object-cover"
           />
         ) : (
-          Icon && <Icon size={iconsize}/>
+          Icon && <Icon size={iconsize} />
         )
       ) : (
         <div className="flex items-center space-x-2">
@@ -54,11 +54,9 @@ iconsize
               className="w-6 h-6 object-cover rounded-md"
             />
           ) : (
-            Icon && <Icon size={iconsize}/>
+            Icon && <Icon size={iconsize} />
           )}
-          {
-            activelabel && <div>{activelabel}</div>
-          }
+          {activelabel && <div>{activelabel}</div>}
         </div>
       )}
     </div>

@@ -9,4 +9,9 @@ export enum OPTIONS {
   CODECHEF = "Code Chef",
 }
 
+export enum Theme {
+  LIGHT = "light",
+  DARK = "dark",
+}
+
 
