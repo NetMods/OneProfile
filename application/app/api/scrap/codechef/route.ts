@@ -1,4 +1,4 @@
-import axios from "../../axios";
+import axios, { isAxiosError } from "../../axios";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
@@ -16,12 +16,24 @@ export async function POST(request: Request) {
       { status: 200 }
     );
   } catch (error) {
+    if (isAxiosError(error)) {
+      if (error.response && error.response.status === 404) {
+        return NextResponse.json(
+          {
+            success: false,
+            message: "Failed to fetch Code Chef profile data.",
+            error: error.response.data.error,
+          },
+          { status: 404 }
+        );
+      }
+    }
     if (error instanceof Error) {
       return NextResponse.json(
         {
           success: false,
-          message: "Failed to fetch Codeforces profile data.",
-          error: error,
+          message: "An unexpected error occurred.",
+          error: error.message,
         },
         { status: 500 }
       );
