@@ -15,6 +15,7 @@ const config: Config = {
         },
         bkg: "hsl(var(--color-bkg) / <alpha-value>)",
         content: "hsl(var(--color-content) / <alpha-value>)",
+        bcol : "var(--colot-bcol) / <alpha-value>"
       },
       animation: {
         "spin-slower": "spin 35s ease infinite",

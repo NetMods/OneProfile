@@ -28,8 +28,8 @@ const Button: React.FC<ButtonProps> = ({
       onClick={() => {
         onClick?.();
       }}
-      className={`bg-black text-white font-semibold h-8 flex flex-row gap-1 items-center justify-center p-1
-        ${circleAvatar ? "rounded-full h-12 w-12" : "rounded-md"}
+      className={`bg-bkg text-content font-semibold h-8 flex flex-row gap-1 items-center justify-center p-2 border bottom-1 border-bcol
+        ${circleAvatar ? "rounded-full h-10 w-10" : "rounded-md"}
         ${small && "w-18"}
         ${medium && "w-24"}
         ${contain && "w-full"}
