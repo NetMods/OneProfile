@@ -19,7 +19,7 @@ const Home = () => {
           <Profiles />
         </Container>
         <Container small>
-          <DockBar/>
+            <DockBar/>
         </Container>
       </MainPage>
     </ClientOnly>

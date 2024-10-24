@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import Button from "../button";
+import Button from "../ui/Button";
 import { TbBrandLeetcode } from "react-icons/tb";
 import { MdOutlineHideSource } from "react-icons/md";
 import { SiGeeksforgeeks, SiCodeforces, SiCodechef } from "react-icons/si";
@@ -32,7 +32,7 @@ const DockBar = () => {
         }`}
         style={{ zIndex: load ? 1 : -1 }}
       >
-        {/* Second div (shown when load is true) */}
+
         <div className="flex flex-row justify-center items-center gap-3 bg-bkg font-semibold mt-2 h-12 p-2 rounded-md cursor-pointer">
           <Button
             onClick={() => {}}
