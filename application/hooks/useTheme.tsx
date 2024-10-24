@@ -1,7 +1,7 @@
-'use client'
-import { createContext, SetStateAction, useContext, useEffect } from 'react'
-import useLocalStorage from './useLocalStorage'
-import { Theme } from '@/lib/constants'
+"use client";
+import { createContext, SetStateAction, useContext, useEffect } from "react";
+import useLocalStorage from "./useLocalStorage";
+import { Theme } from "@/lib/constants";
 
 interface ThemeContextProps {
   theme: string

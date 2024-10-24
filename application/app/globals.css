@@ -10,6 +10,7 @@
     --color-content: 217deg 28% 12%; /* Dark content (text) */
     --color-accent1: 340deg 82% 52%; /* Bright pinkish-red accent */
     --color-accent2: 200deg 90% 50%; /* Bright blue accent */
+    --color-bcol :  #171717;
   }
 
   :root[data-theme="dark"] {
@@ -18,6 +19,8 @@
     --color-bkg: 217deg 28% 12%; /* Dark background */
     --color-content: 217deg 100% 97%; /* Light content (text) */
     --color-accent1: 340deg 72% 62%; /* Muted pinkish-red accent */
-    --color-accent2: 200deg 80% 60%; /* Muted blue accent */
+    --color-accent2: 200deg 80% 60%;
+    --color-bcol :  #ffffff ;
   }
 }
+

@@ -10,10 +10,10 @@ interface ContainerProps {
 const Container: React.FC<ContainerProps> = ({ children, small, medium, large }) => {
   return (
     <div
-      className={`text-content flex justify-center w-full sm:w-2/3 lg:w-11/12 md:w-4/6 mt-1 mb-1
-            ${small && 'h-16'}
-            ${medium && 'h-4/6'}
-            ${large && 'h-5/6'}
+      className={` text-content flex justify-center w-[95vw] mt-1 mb-1
+            ${small && "h-16"}
+            ${medium && "h-4/6"}
+            ${large && "h-5/6"}
         `}
     >
       {children}
