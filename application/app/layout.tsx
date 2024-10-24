@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import { inter } from "./fonts";
+import { inter } from "@/fonts";
 
 export const metadata: Metadata = {
-  title: "OneProfile",
+  title: "Oneprofile",
   description: "One Profile For Coders",
 };
 
@@ -15,11 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={cn(inter.className, "antialiased")}
-      >
-        {children}
-      </body>
+      <body className={cn(inter.className, "antialiased")}>{children}</body>
     </html>
   );
 }

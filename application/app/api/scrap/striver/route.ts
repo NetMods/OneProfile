@@ -1,4 +1,4 @@
-import axios, { isAxiosError } from "../../axios";
+import axios, { isAxiosError } from "@/app/api/axios";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {

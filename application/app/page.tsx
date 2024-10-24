@@ -3,7 +3,7 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import axios, { isAxiosError } from "axios";
 import { useState } from "react";
 import { OPTIONS } from "@/lib/constants";
-import DropDown from "../components/DropDown";
+import { DropDown } from "@/components/DropDown";
 
 const Home = () => {
   const [response, setResponse] = useState({});
@@ -74,7 +74,7 @@ const Home = () => {
   };
 
   return (
-    // add this to this class later max-w-md
+    // TODO: add this to this class later max-w-md
     <div className="max-w-md mx-auto pt-4 ">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-row gap-1">
