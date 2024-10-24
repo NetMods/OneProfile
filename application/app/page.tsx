@@ -1,5 +1,4 @@
 "use client";
-import DropDown from "../components/DropDown";
 import ClientOnly from "@/components/clientonly";
 import MainPage from "@/components/mainpage";
 import Container from "@/components/container";
@@ -9,7 +8,7 @@ const Home = () => {
     <ClientOnly>
       <MainPage>
         <Container small>
-          <div className="">header</div>
+          <div className="flex flex-row gap-2">header</div>
         </Container>
         <Container large>
           <div className="">body</div>
