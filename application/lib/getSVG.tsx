@@ -16,14 +16,14 @@ export const getSVG = (svg: string) => {
             fill="#FFA116"
           ></path>
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M41.1067 72.0014C37.5858 72.0014 34.7314 69.1421 34.7314 65.615C34.7314 62.0879 37.5858 59.2286 41.1067 59.2286H88.1245C91.6454 59.2286 94.4997 62.0879 94.4997 65.615C94.4997 69.1421 91.6454 72.0014 88.1245 72.0014H41.1067Z"
             fill="#B3B3B3"
           ></path>
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M49.9118 2.02335C52.3173 -0.55232 56.3517 -0.686894 58.9228 1.72277C61.494 4.13244 61.6284 8.17385 59.2229 10.7495L16.4276 56.5729C11.7768 61.552 12.2861 69.5738 17.6453 74.8292L37.4088 94.2091C39.9249 96.6764 39.968 100.72 37.505 103.24C35.042 105.761 31.0056 105.804 28.4895 103.337L8.72593 83.9567C-1.42529 74.0021 -2.43665 58.0741 7.1169 47.8463L49.9118 2.02335Z"
             fill="black"
           ></path>
@@ -84,8 +84,8 @@ export const getSVG = (svg: string) => {
             fill="white"
           />
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M69.5 44.46L246.24 32.92C251.17 32.6 255.22 37.16 255.22 42.35V75.14C255.22 80.32 251.18 84.7 246.24 84.57L62.07 79.61C58.28 79.28 58.31 77.06 58.11 74.9C71.14 72.54 63.78 56.85 57.13 57.67C57.86 48.23 63.31 45.07 69.5 44.46Z"
             fill="url(#paint0_linear_9_45)"
           />
@@ -98,14 +98,14 @@ export const getSVG = (svg: string) => {
             fill="#5B4538"
           />
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M52.41 77.29C53.92 86.31 42.89 87.18 38.36 83.13C35.23 80.33 36.11 76.44 40.6 76.68C44.55 76.89 46.88 81.99 52.41 77.29Z"
             fill="#5B4538"
           />
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M18.91 77.29C17.4 86.31 28.43 87.18 32.96 83.13C36.09 80.33 35.21 76.44 30.72 76.68C26.77 76.89 24.44 81.99 18.91 77.29Z"
             fill="#5B4538"
           />
@@ -130,8 +130,8 @@ export const getSVG = (svg: string) => {
             fill="#C8BCA8"
           />
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M20.39 54.28C24.8 51.94 35.84 46.15 50.62 56.3C51.04 53.92 51.08 51.54 50.75 49.16C50.33 43.53 28.27 36.64 20.27 49.04L20.39 54.28Z"
             fill="url(#paint2_linear_9_45)"
           />
@@ -140,8 +140,8 @@ export const getSVG = (svg: string) => {
             fill="#C8BCA8"
           />
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M14.1801 12.5C13.5001 15.93 16.5401 26.76 15.5201 32.44C15.0001 29.46 13.1001 23.55 13.1801 20.22C12.2601 18.22 11.3401 15.8 10.3301 14.87C9.42005 14.04 12.4201 9.09 14.1801 12.5Z"
             fill="url(#paint3_linear_9_45)"
           />
@@ -150,8 +150,8 @@ export const getSVG = (svg: string) => {
             fill="#A99675"
           />
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M20.96 11.1C20.28 14.53 22.02 22.4 21.01 28.09C20.49 25.11 18.59 19.2 18.67 15.87C17.75 13.87 16.65 11.59 16 10.41C15.41 9.35 18.45 7.92 20.96 11.1Z"
             fill="url(#paint4_linear_9_45)"
           />
@@ -224,15 +224,15 @@ export const getSVG = (svg: string) => {
               y2="58.7378"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#3B2519" />
-              <stop offset="0.0299" stop-color="#3F2719" />
-              <stop offset="0.2736" stop-color="#5C331B" />
-              <stop offset="0.4847" stop-color="#6E3B1D" />
-              <stop offset="0.6382" stop-color="#743E1D" />
-              <stop offset="0.7421" stop-color="#6F3C1C" />
-              <stop offset="0.8624" stop-color="#61351A" />
-              <stop offset="0.9905" stop-color="#4A2B17" />
-              <stop offset="1" stop-color="#482A17" />
+              <stop stopColor="#3B2519" />
+              <stop offset="0.0299" stopColor="#3F2719" />
+              <stop offset="0.2736" stopColor="#5C331B" />
+              <stop offset="0.4847" stopColor="#6E3B1D" />
+              <stop offset="0.6382" stopColor="#743E1D" />
+              <stop offset="0.7421" stopColor="#6F3C1C" />
+              <stop offset="0.8624" stopColor="#61351A" />
+              <stop offset="0.9905" stopColor="#4A2B17" />
+              <stop offset="1" stopColor="#482A17" />
             </linearGradient>
             <linearGradient
               id="paint1_linear_9_45"
@@ -242,13 +242,13 @@ export const getSVG = (svg: string) => {
               y2="28.4626"
               gradientUnits="userSpaceOnUse"
             >
-              <stop offset="0.0397" stop-color="#F9F9EC" />
-              <stop offset="0.4183" stop-color="#F9F9EC" />
-              <stop offset="0.4932" stop-color="#F3F1E2" />
-              <stop offset="0.6217" stop-color="#E4DDC6" />
-              <stop offset="0.7873" stop-color="#CCBC9A" />
-              <stop offset="0.7969" stop-color="#CABA97" />
-              <stop offset="1" stop-color="#BAA685" />
+              <stop offset="0.0397" stopColor="#F9F9EC" />
+              <stop offset="0.4183" stopColor="#F9F9EC" />
+              <stop offset="0.4932" stopColor="#F3F1E2" />
+              <stop offset="0.6217" stopColor="#E4DDC6" />
+              <stop offset="0.7873" stopColor="#CCBC9A" />
+              <stop offset="0.7969" stopColor="#CABA97" />
+              <stop offset="1" stopColor="#BAA685" />
             </linearGradient>
             <linearGradient
               id="paint2_linear_9_45"
@@ -258,13 +258,13 @@ export const getSVG = (svg: string) => {
               y2="49.2016"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#F9F9EC" />
-              <stop offset="0.0526" stop-color="#F9F9EC" />
-              <stop offset="0.3844" stop-color="#F9F9EC" />
-              <stop offset="0.5145" stop-color="#F5F4E5" />
-              <stop offset="0.7094" stop-color="#EAE5D0" />
-              <stop offset="0.9441" stop-color="#D9CCAF" />
-              <stop offset="0.9987" stop-color="#D4C6A6" />
+              <stop stopColor="#F9F9EC" />
+              <stop offset="0.0526" stopColor="#F9F9EC" />
+              <stop offset="0.3844" stopColor="#F9F9EC" />
+              <stop offset="0.5145" stopColor="#F5F4E5" />
+              <stop offset="0.7094" stopColor="#EAE5D0" />
+              <stop offset="0.9441" stopColor="#D9CCAF" />
+              <stop offset="0.9987" stopColor="#D4C6A6" />
             </linearGradient>
             <linearGradient
               id="paint3_linear_9_45"
@@ -274,8 +274,8 @@ export const getSVG = (svg: string) => {
               y2="21.8836"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#E8DBCA" />
-              <stop offset="1" stop-color="#F2ECDE" />
+              <stop stopColor="#E8DBCA" />
+              <stop offset="1" stopColor="#F2ECDE" />
             </linearGradient>
             <linearGradient
               id="paint4_linear_9_45"
@@ -285,9 +285,9 @@ export const getSVG = (svg: string) => {
               y2="20.2955"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#ECE1D1" />
-              <stop offset="0.4318" stop-color="#EEE6D9" />
-              <stop offset="1" stop-color="#EFE9DE" />
+              <stop stopColor="#ECE1D1" />
+              <stop offset="0.4318" stopColor="#EEE6D9" />
+              <stop offset="1" stopColor="#EFE9DE" />
             </linearGradient>
             <linearGradient
               id="paint5_linear_9_45"
@@ -297,8 +297,8 @@ export const getSVG = (svg: string) => {
               y2="19.2871"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#ECE1D1" />
-              <stop offset="1" stop-color="#EDE4D5" />
+              <stop stopColor="#ECE1D1" />
+              <stop offset="1" stopColor="#EDE4D5" />
             </linearGradient>
             <linearGradient
               id="paint6_linear_9_45"
@@ -308,8 +308,8 @@ export const getSVG = (svg: string) => {
               y2="26.3957"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#BAA68A" />
-              <stop offset="1" stop-color="#C7BAA0" />
+              <stop stopColor="#BAA68A" />
+              <stop offset="1" stopColor="#C7BAA0" />
             </linearGradient>
             <linearGradient
               id="paint7_linear_9_45"
@@ -319,22 +319,16 @@ export const getSVG = (svg: string) => {
               y2="29.1551"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#BDAE99" />
-              <stop offset="0.2551" stop-color="#BFB19C" />
-              <stop offset="1" stop-color="#C2B5A1" />
+              <stop stopColor="#BDAE99" />
+              <stop offset="0.2551" stopColor="#BFB19C" />
+              <stop offset="1" stopColor="#C2B5A1" />
             </linearGradient>
           </defs>
         </svg>
       )
     case OPTIONS.STRIVER:
       return (
-        <svg
-          width="45"
-          height="26"
-          viewBox="0 0 135 36"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+        <svg width="45" height="26" viewBox="0 0 135 36" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M0 5.89409H15.3693L9.5331 36H21.8368L27.2126 5.89409H42.2511L43.4131 0H1.17165L0 5.89409Z"
             fill="#D41F30"
