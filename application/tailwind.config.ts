@@ -1,14 +1,26 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  darkMode: ["class"],
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./hooks/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        accent: {
+          1: "hsl(var(--color-accent1) / <alpha-value>)",
+          2: "hsl(var(--color-accent2) / <alpha-value>)",
+        },
+        bkg: "hsl(var(--color-bkg) / <alpha-value>)",
+        content: "hsl(var(--color-content) / <alpha-value>)",
+      },
+      animation: {
+        "spin-slower": "spin 35s ease infinite",
+        "spin-faster": "spin 25s ease infinite reverse",
+      },
+    },
   },
   plugins: [require("tailwindcss-animate")],
 };
