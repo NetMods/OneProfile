@@ -1,8 +1,9 @@
-"use client";
-import ClientOnly from "@/components/clientonly";
-import MainPage from "@/components/mainpage";
-import Container from "@/components/container";
-import ThemeSwitcher from "@/components/theme-switcher";
+'use client'
+import ClientOnly from '@/components/client-only'
+import MainPage from '@/components/main-page'
+import Container from '@/components/container'
+import ThemeSwitcher from '@/components/theme-switcher'
+import Profiles from '@/components/profiles'
 
 const Home = () => {
   return (
@@ -13,15 +14,17 @@ const Home = () => {
             <ThemeSwitcher />
           </div>
         </Container>
+
         <Container large>
-          <div className="">body</div>
+          <Profiles />
         </Container>
+
         <Container small>
           <div className="">footer</div>
         </Container>
       </MainPage>
     </ClientOnly>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

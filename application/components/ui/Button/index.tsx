@@ -9,7 +9,7 @@ interface ButtonProps {
   circleAvatar?: boolean;
   onClick?: () => void;
   imageSrc?: string;
-  iconsize? : number
+  iconsize?: number;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -21,13 +21,13 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
   circleAvatar,
   imageSrc,
-iconsize
+  iconsize,
 }) => {
   return (
     <div
-    onClick={()=>{
-        onClick?.()
-    }}
+      onClick={() => {
+        onClick?.();
+      }}
       className={`bg-black text-white font-semibold h-8 flex flex-row gap-1 items-center justify-center p-1
         ${circleAvatar ? "rounded-full h-12 w-12" : "rounded-md"}
         ${small && "w-18"}
@@ -43,7 +43,7 @@ iconsize
             className="rounded-full w-full h-full object-cover"
           />
         ) : (
-          Icon && <Icon size={iconsize}/>
+          Icon && <Icon size={iconsize} />
         )
       ) : (
         <div className="flex items-center space-x-2">
@@ -54,11 +54,9 @@ iconsize
               className="w-6 h-6 object-cover rounded-md"
             />
           ) : (
-            Icon && <Icon size={iconsize}/>
+            Icon && <Icon size={iconsize} />
           )}
-          {
-            activelabel && <div>{activelabel}</div>
-          }
+          {activelabel && <div>{activelabel}</div>}
         </div>
       )}
     </div>
