@@ -1,7 +1,6 @@
 "use client";
-import DropDown from "../components/DropDown";
-import ClientOnly from "@/components/client-only";
-import MainPage from "@/components/main-page";
+import ClientOnly from "@/components/clientonly";
+import MainPage from "@/components/mainpage";
 import Container from "@/components/container";
 import ThemeSwitcher from "@/components/theme-switcher";
 
