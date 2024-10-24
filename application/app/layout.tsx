@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { inter } from "@/fonts";
-import ClientOnly from "@/components/clientonly";
-import MainPage from "@/components/mainpage";
+import { ThemeProvider } from "@/hooks/useTheme";
 
 export const metadata: Metadata = {
   title: "Oneprofile",
@@ -16,15 +15,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={cn(
-          inter.className,
-          "antialiased overflow-y-hidden "
-        )}
-      >
-        {children}
-      </body>
-    </html>
+    <ThemeProvider>
+      <html lang="en">
+        <body className={cn(inter.className, "antialiased overflow-y-hidden ")}>
+          {children}
+        </body>
+      </html>
+    </ThemeProvider>
   );
 }
