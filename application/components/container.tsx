@@ -1,18 +1,13 @@
-"use client";
+'use client'
 
 interface ContainerProps {
-  children: React.ReactNode;
-  small?: boolean;
-  medium?: boolean;
-  large?: boolean;
+  children: React.ReactNode
+  small?: boolean
+  medium?: boolean
+  large?: boolean
 }
 
-const Container: React.FC<ContainerProps> = ({
-  children,
-  small,
-  medium,
-  large,
-}) => {
+const Container: React.FC<ContainerProps> = ({ children, small, medium, large }) => {
   return (
     <div
       className={` text-content flex justify-center w-[95vw] mt-1 mb-1
@@ -23,7 +18,7 @@ const Container: React.FC<ContainerProps> = ({
     >
       {children}
     </div>
-  );
-};
+  )
+}
 
-export default Container;
+export default Container

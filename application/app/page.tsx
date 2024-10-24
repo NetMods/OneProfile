@@ -4,6 +4,7 @@ import MainPage from "@/components/main-page";
 import Container from "@/components/container";
 import ThemeSwitcher from "@/components/theme-switcher";
 import DockBar from "@/components/footer/dockBar";
+import Profiles from '@/components/profiles'
 
 const Home = () => {
   return (
@@ -15,14 +16,14 @@ const Home = () => {
           </div>
         </Container>
         <Container large>
-          <div className="">body</div>
+          <Profiles />
         </Container>
         <Container small>
           <DockBar/>
         </Container>
       </MainPage>
     </ClientOnly>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

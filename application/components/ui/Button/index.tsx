@@ -9,7 +9,7 @@ interface ButtonProps {
   circleAvatar?: boolean;
   onClick?: () => void;
   imageSrc?: string;
-  iconsize? : number
+  iconsize?: number;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -21,7 +21,7 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
   circleAvatar,
   imageSrc,
-iconsize
+  iconsize,
 }) => {
   return (
     <div

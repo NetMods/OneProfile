@@ -1,10 +1,9 @@
 import { useTheme } from "@/hooks/useTheme";
 import { FiMoon, FiSun } from "react-icons/fi";
 import { Theme } from "@/lib/constants";
-import { useState, useEffect } from "react";
 
 const ThemeSwitcher = () => {
-  const { theme, toggle } = useTheme();
+  const { theme, toggle } = useTheme()
 
   return (
     <div>
@@ -20,4 +19,4 @@ const ThemeSwitcher = () => {
   );
 };
 
-export default ThemeSwitcher;
+export default ThemeSwitcher
