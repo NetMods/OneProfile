@@ -36,31 +36,53 @@ export const codechef = async (request: Request, response: Response): Promise<an
 
     await page.goto(CODECHEF_URL);
 
-    await page.waitForSelector("#js-heatmap > svg:nth-child(1)", { timeout: 10000 })
+    try {
+      await page.waitForSelector("#js-heatmap > svg:nth-child(1)", { timeout: 10000 })
+    } catch {
+      return response.status(404).json({
+        success: false,
+        error: "URL not found"
+      })
+    }
+
 
     const data = await page.evaluate(() => {
       return {
-        rating: document.querySelector('.rating-number')?.textContent ?? "null",
+        contest: {
+          rating: document.querySelector('.rating-number')?.textContent ?? "null",
 
-        highestRating: document.querySelector('.rating-header > small:nth-child(5)')?.textContent ?? "null",
+          maxRating: document.querySelector('.rating-header > small:nth-child(5)')?.textContent ?? "null",
 
-        globalRank: document.querySelector('.inline-list > li:nth-child(1) > a:nth-child(1) > strong:nth-child(1)')?.textContent ?? "null",
+          globalRank: document.querySelector('.inline-list > li:nth-child(1) > a:nth-child(1) > strong:nth-child(1)')?.textContent ?? "null",
 
-        countryRank: document.querySelector('.inline-list > li:nth-child(2) > a:nth-child(1) > strong:nth-child(1)')?.textContent ?? "null",
+          countryRank: document.querySelector('.inline-list > li:nth-child(2) > a:nth-child(1) > strong:nth-child(1)')?.textContent ?? "null",
+
+          attended: document.querySelector('.contest-participated-count > b:nth-child(1)')?.textContent ?? "null",
+        },
 
         stars: document.querySelector('span.rating')?.textContent ?? "null",
 
-        totalProblems: document.querySelector('section.rating-data-section:nth-child(5) > h3:nth-child(15)')?.textContent ?? "null"
+        problems: {
+          total: document.querySelector('section.rating-data-section:nth-child(5) > h3:nth-child(15)')?.textContent ?? "null"
+        }
       }
     })
 
-    return response.status(200).json({ scrappedData: data });
+    return response.status(200).json({
+      success: true,
+      scrappedData: data,
+    });
+
   } catch (error) {
-    console.error(error);
-    return response.status(500).json({ error });
+    console.log(error)
+
+    return response.status(500).json({
+      success: false,
+      error: error.message
+    })
+
   } finally {
-    await browser.close();
-    console.log("Browser closed");
+    browser.close();
   }
-}
+};
 

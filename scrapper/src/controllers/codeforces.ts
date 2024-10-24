@@ -35,7 +35,16 @@ export const codeforces = async (request: Request, response: Response): Promise<
 
     await page.goto(CODEFORCES_URL);
 
-    await page.waitForSelector(".flot-overlay", { timeout: 10000 })
+    try {
+      await page.waitForSelector(".flot-overlay", { timeout: 10000 })
+    } catch {
+      return response.status(404).json({
+        success: false,
+        error: "URL not found"
+      })
+    }
+
+
 
     const data = await page.evaluate(() => {
       return {
@@ -49,13 +58,21 @@ export const codeforces = async (request: Request, response: Response): Promise<
       }
     })
 
-    return response.status(200).json({ scrapped: data });
+    return response.status(200).json({
+      success: true,
+      scrappedData: data,
+    });
+
   } catch (error) {
-    console.error(error);
-    return response.status(500).json({ error });
+    console.log(error)
+
+    return response.status(500).json({
+      success: false,
+      error: error.message
+    })
+
   } finally {
-    await browser.close();
-    console.log("Browser closed");
+    browser.close();
   }
-}
+};
 

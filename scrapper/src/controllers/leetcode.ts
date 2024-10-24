@@ -35,7 +35,14 @@ export const leetcode = async (request: Request, response: Response): Promise<an
 
     await page.goto(LEETCODE_URL);
 
-    await page.waitForSelector('a[href^="/submissions/detail/"]', { timeout: 15000 });
+    try {
+      await page.waitForSelector('a[href^="/submissions/detail/"]', { timeout: 15000 });
+    } catch {
+      return response.status(404).json({
+        success: false,
+        error: "URL not found"
+      })
+    }
 
     await page.evaluate(() => {
       const showMoreButtonOne = document.querySelector('.lc-lg\\:w-\\[300px\\] > div:nth-child(8) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > span:nth-child(1)') as HTMLElement
@@ -116,6 +123,7 @@ export const leetcode = async (request: Request, response: Response): Promise<an
     });
 
     return response.status(200).json({
+      success: true,
       scrappedData: data,
     });
 
@@ -123,10 +131,10 @@ export const leetcode = async (request: Request, response: Response): Promise<an
     console.log(error.message);
 
     return response.status(500).json({
+      success: false,
       error: error.message,
     });
   } finally {
     await browser.close();
-    console.log("Browser closed");
   }
 };
