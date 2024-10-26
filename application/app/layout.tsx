@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { cn } from '@/lib/utils'
-import { inter } from '@/fonts'
+import { firacode } from '@/fonts'
 import { ThemeProvider } from '@/hooks/useTheme'
 import Header from '@/components/header/header'
 import Container from '@/components/container'
