@@ -5,7 +5,7 @@ interface MainPageProps {
 
 const MainPage: React.FC<MainPageProps> = ({ children }) => {
   return (
-    <div className={`flex flex-col h-full justify-between`}>{children}</div>
+    <div className={``}>{children}</div>
   )
 }
 

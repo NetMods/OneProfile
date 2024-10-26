@@ -11,9 +11,9 @@ const ThemeSwitcher = () => {
         onClick={() => {
           toggle()
         }}
-        className="p-2 bg-bkg border text-content rounded-md shadow-md border-content/40"
+        className="p-1 bg-bkg border text-content rounded-md shadow-md border-content/40"
       >
-        { theme && theme === Theme.LIGHT ? <FiMoon size={28} /> : <FiSun size={28}/> }
+        { theme && theme === Theme.LIGHT ? <FiMoon size={24} /> : <FiSun size={24}/> }
       </button>
     </div>
   );

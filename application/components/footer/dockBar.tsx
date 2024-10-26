@@ -13,7 +13,7 @@ const DockBar = () => {
   }, [])
 
   return (
-    <div className="relative">
+    <div className="relative bg-blue-300">
       <div
         className={`transition-opacity duration-500 ease-in-out ${load ? 'opacity-0' : 'opacity-100'
           }`}
@@ -30,11 +30,11 @@ const DockBar = () => {
         style={{ zIndex: load ? 1 : -1 }}
       >
         <div className="flex flex-row justify-center items-center gap-3 bg-bkg font-semibold mt-2 h-12 p-2 rounded-md cursor-pointer">
-          {/*<Button onClick={() => { }} circleAvatar icon={TbBrandLeetcode} iconsize={24} />
+          {/* <Button onClick={() => { }} circleAvatar icon={TbBrandLeetcode} iconsize={24} />
           <Button onClick={() => { }} circleAvatar icon={SiGeeksforgeeks} iconsize={24} />
           <Button onClick={() => { }} circleAvatar icon={SiCodeforces} iconsize={24} />
           <Button onClick={() => { }} circleAvatar icon={SiCodechef} iconsize={24} />
-          <Button onClick={changeState} circleAvatar icon={MdOutlineHideSource} iconsize={24} />*/}
+          <Button onClick={changeState} circleAvatar icon={MdOutlineHideSource} iconsize={24} /> */}
         </div>
       </div>
     </div>
