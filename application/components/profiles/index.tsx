@@ -4,8 +4,8 @@ import { OPTIONS } from '@/lib/constants'
 
 const Profiles = () => {
   return (
-    <div className="flex flex-col w-full gap-3 justify-center p-5 max-w-[1500px]  ">
-      <div className="flex  w-full gap-3 max-[700px]:flex-wrap">
+    <div className="flex flex-col w-full gap-3 justify-center p-5 max-w-[1500px] ">
+      <div className="flex  w-full gap-3 max-[1200px]:flex-wrap">
         <CardWrapper header="Ninjafire" icon={getSVG(OPTIONS.LEETCODE)}>
           <div className="">body</div>
         </CardWrapper>
@@ -15,7 +15,7 @@ const Profiles = () => {
         </CardWrapper>
       </div>
 
-      <div className="flex w-full gap-3 max-[1000px]:flex-wrap">
+      <div className="flex w-full gap-3 max-[900px]:flex-wrap">
         <CardWrapper header="tourist" icon={getSVG(OPTIONS.CODEFORCES)}>
           <div className="">body</div>
         </CardWrapper>

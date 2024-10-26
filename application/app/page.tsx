@@ -1,25 +1,27 @@
-"use client";
-import ClientOnly from "@/components/client-only";
-import MainPage from "@/components/main-page";
-import Container from "@/components/container";
-import ThemeSwitcher from "@/components/theme-switcher";
-import DockBar from "@/components/footer/dockBar";
+'use client'
+import MainPage from '@/components/main-page'
+import Container from '@/components/container'
+import ThemeSwitcher from '@/components/theme-switcher'
+import DockBar from '@/components/footer/dockBar'
 import Profiles from '@/components/profiles'
+import ClientOnly from '@/components/client-only'
 
 const Home = () => {
   return (
     <ClientOnly>
       <MainPage>
-        <Container small>
+        <Container >
           <div className="flex justify-between p-3">
             <ThemeSwitcher />
           </div>
         </Container>
-        <Container large>
+
+        <Container >
           <Profiles />
         </Container>
-        <Container small>
-          <DockBar/>
+
+        <Container >
+          <DockBar />
         </Container>
       </MainPage>
     </ClientOnly>
