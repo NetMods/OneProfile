@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { cn } from '@/lib/utils'
-import { inter } from '@/fonts'
+import { firacode } from '@/fonts'
 import { ThemeProvider } from '@/hooks/useTheme'
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <ThemeProvider>
       <html lang="en">
-        <body className={cn(inter.className, 'bg-bkg antialiased')}>{children}</body>
+        <body className={cn(firacode.className, 'bg-bkg antialiased')}>{children}</body>
       </html>
     </ThemeProvider>
   )
