@@ -16,11 +16,11 @@ const Home = () => {
           </div>
         </Container>
 
-        <Container >
+        <Container>
           <Profiles />
         </Container>
 
-        <Container >
+        <Container>
           <DockBar />
         </Container>
       </MainPage>
