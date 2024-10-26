@@ -328,7 +328,7 @@ export const getSVG = (svg: string) => {
       )
     case OPTIONS.STRIVER:
       return (
-        <svg width="45" height="26" viewBox="0 0 135 36" xmlns="http://www.w3.org/2000/svg">
+        <svg width="40" height="26" viewBox="0 0 135 36" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M0 5.89409H15.3693L9.5331 36H21.8368L27.2126 5.89409H42.2511L43.4131 0H1.17165L0 5.89409Z"
             fill="#D41F30"
