@@ -5,7 +5,7 @@ import { inter } from '@/fonts'
 import { ThemeProvider } from '@/hooks/useTheme'
 
 export const metadata: Metadata = {
-  title: 'Oneprofile',
+  title: 'One Profile',
   description: 'One Profile For Coders'
 }
 
@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <ThemeProvider>
       <html lang="en">
-        <body className={cn(inter.className, 'antialiased overflow-y-hidden ')}>{children}</body>
+        <body className={cn(inter.className, 'bg-bkg antialiased')}>{children}</body>
       </html>
     </ThemeProvider>
   )
