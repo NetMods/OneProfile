@@ -4,7 +4,7 @@ import { OPTIONS } from '@/lib/constants'
 
 const Profiles = () => {
   return (
-    <div className="flex flex-col w-full gap-3 justify-center p-5 max-w-[1500px] ">
+    <div className="flex flex-col w-full gap-3 justify-center p-5 max-w-[1500px] bg-amber-50  ">
       <div className="flex  w-full gap-3 max-[1200px]:flex-wrap">
         <CardWrapper header="Ninjafire" icon={getSVG(OPTIONS.LEETCODE)}>
           <div className="">body</div>
