@@ -13,7 +13,7 @@ const DockBar = () => {
   }, [])
 
   return (
-    <div className="relative bg-blue-300">
+    <div className="relative ">
       <div
         className={`transition-opacity duration-500 ease-in-out ${load ? 'opacity-0' : 'opacity-100'
           }`}

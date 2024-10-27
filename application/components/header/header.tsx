@@ -12,7 +12,7 @@ const Header : React.FC<HeaderProps> = ({
   userId
 })=>{
     return (
-      <div className="flex flex-row justify-between items-center w-full mt-2  bg-red-200">
+      <div className="flex flex-row justify-between items-center w-full mt-2">
         <div className="overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-105 ">
           <img src="/logo.png" alt="logo" height={1} width={150} />
         </div>

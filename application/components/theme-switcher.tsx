@@ -1,3 +1,4 @@
+'use client'
 import { useTheme } from "@/hooks/useTheme";
 import { FiMoon, FiSun } from "react-icons/fi";
 import { Theme } from "@/lib/constants";
