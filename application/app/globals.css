@@ -26,7 +26,7 @@ body,
   :root[data-theme='dark'] {
     --white: #ffffff;
     --black: #171717;
-    --color-bkg: 216deg 0% 100%;
+    --color-bkg: 216deg 0% 7%;
     /* Dark background */
     --color-content: 217deg 100% 97%;
     /* Light content (text) */
@@ -44,6 +44,6 @@ body,
 }
 
 .profile-border-dark {
-  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='14' ry='14' stroke='white' stroke-width='4' stroke-dasharray='11%2c 13%2c 7' stroke-dashoffset='37' stroke-linecap='butt'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='14' ry='14' stroke='%23b0b0b0' stroke-width='4' stroke-dasharray='11%2c 13%2c 7' stroke-dashoffset='37' stroke-linecap='butt'/%3e%3c/svg%3e");
   border-radius: 14px;
 }
