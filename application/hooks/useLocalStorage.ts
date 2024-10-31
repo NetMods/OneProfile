@@ -23,7 +23,7 @@ export const useLocalStorage = (key: string, initValue: unknown) => {
   try {
     useEffect(() => {
       localStorage.setItem(key, JSON.stringify(state));
-    }, [state]);
+    }, [key, state]);
   } catch (error) {
     console.log("Failed to access local storage", error);
   }

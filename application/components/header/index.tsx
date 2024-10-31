@@ -3,14 +3,12 @@ import Container from '@/components/container'
 
 import { auth } from '@clerk/nextjs/server'
 
-const { userId } = await auth()
-console.log(userId)
+const Navbar = async () => {
+  const session = await auth()
 
-const Navbar = () => {
   return (
-
     <Container>
-      <Header userId={userId} />
+      <Header userId={session.userId} />
     </Container>
   )
 }

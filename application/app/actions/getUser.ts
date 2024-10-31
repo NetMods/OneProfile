@@ -1,16 +1,15 @@
 import { currentUser } from '@clerk/nextjs/server'
-import { NextResponse } from 'next/server'
 
 export default async function getUser() {
-    const user = await currentUser()
-    if(!user){
-        return NextResponse.json({
-            success : false,
-        })
+  const user = await currentUser()
+  if (!user) {
+    return {
+      success: false,
     }
+  }
 
-    return NextResponse.json({
-        ...user,
-        success : true
-    })
+  return {
+    ...user,
+    success: true
+  }
 }
