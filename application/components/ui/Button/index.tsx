@@ -35,7 +35,7 @@ const Button: React.FC<ButtonProps> = ({
         onClick?.();
       }}
       style={style}
-      className={`bg-bkg text-content font-semibold flex flex-row gap-1 items-center justify-center 
+      className={`bg-bkg text-content font-semibold flex flex-row gap-1 items-center justify-center p-1 
         ${circleAvatar ? "rounded-full h-10 w-10 " : "rounded-md "}
         ${small && "w-18 "}
         ${medium && "w-24 "}

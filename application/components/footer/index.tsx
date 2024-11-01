@@ -29,7 +29,7 @@ const DockBar = () => {
 
   const changeState = useCallback(() => {
     setLoad(prev => !prev)
-  }, [])
+  }, [setLoad])
 
   return (
     <>
