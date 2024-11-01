@@ -1,3 +1,4 @@
+"use client"
 import { useTheme } from "@/hooks/useTheme";
 import { Theme } from "@/lib/constants";
 import { IoIosCheckmark } from "react-icons/io";

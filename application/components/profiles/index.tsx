@@ -5,13 +5,13 @@ import { OPTIONS } from '@/lib/constants'
 
 const Profiles = () => {
   return (
-    <div className="flex flex-col w-full gap-3 justify-center p-5 max-w-[1500px]">
-      <div className="flex  w-full gap-3 max-[1200px]:flex-wrap">
+    <div className="flex flex-col w-full gap-7 justify-center p-5 max-w-[1500px]">
+      <div className="flex  w-full gap-7 max-[1200px]:flex-wrap">
         <CardWrapper header="Ninjafire" icon={getSVG(OPTIONS.LEETCODE)}>
           <SkeletonBody profile={OPTIONS.LEETCODE} />
         </CardWrapper>
 
-        <CardWrapper header="riyanshig816" icon={getSVG(OPTIONS.GFG)}>
+        <CardWrapper header="someGFGid" icon={getSVG(OPTIONS.GFG)}>
           <SkeletonBody profile={OPTIONS.GFG} />
         </CardWrapper>
       </div>

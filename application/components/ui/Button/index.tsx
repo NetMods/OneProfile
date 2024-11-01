@@ -1,4 +1,6 @@
 import { IconType } from "react-icons";
+import Image from "next/image";
+import { CSSProperties } from "react";
 
 interface ButtonProps {
   activelabel?: string;
@@ -10,6 +12,8 @@ interface ButtonProps {
   onClick?: () => void;
   imageSrc?: string;
   iconsize?: number;
+  className?: string;
+  style?: CSSProperties
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -22,22 +26,26 @@ const Button: React.FC<ButtonProps> = ({
   circleAvatar,
   imageSrc,
   iconsize,
+  className,
+  style,
 }) => {
   return (
     <div
       onClick={() => {
         onClick?.();
       }}
-      className={`bg-bkg text-content font-semibold h-8 flex flex-row gap-1 items-center justify-center p-2 border bottom-1 border-bcol
-        ${circleAvatar ? "rounded-full h-10 w-10" : "rounded-md"}
-        ${small && "w-18"}
-        ${medium && "w-24"}
-        ${contain && "w-full"}
-        cursor-pointer`}
+      style={style}
+      className={`bg-bkg text-content font-semibold flex flex-row gap-1 items-center justify-center 
+        ${circleAvatar ? "rounded-full h-10 w-10 " : "rounded-md "}
+        ${small && "w-18 "}
+        ${medium && "w-24 "}
+        ${contain && "w-full "}
+        ${className}
+         cursor-pointer`}
     >
       {circleAvatar ? (
         imageSrc ? (
-          <img
+          <Image
             src={imageSrc}
             alt="avatar"
             className="rounded-full w-full h-full object-cover"
@@ -48,7 +56,7 @@ const Button: React.FC<ButtonProps> = ({
       ) : (
         <div className="flex items-center space-x-2">
           {imageSrc ? (
-            <img
+            <Image
               src={imageSrc}
               alt="icon"
               className="w-6 h-6 object-cover rounded-md"
