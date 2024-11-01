@@ -2,10 +2,6 @@
 import { useCallback, useState } from "react";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { DropDownOptions } from "./DropDownOptions";
-import { TbBrandLeetcode } from "react-icons/tb";
-import { SiCodeforces } from "react-icons/si";
-import { SiGeeksforgeeks } from "react-icons/si";
-import { SiCodechef } from "react-icons/si";
 import { OPTIONS } from "@/lib/constants";
 
 interface DropDownProps {

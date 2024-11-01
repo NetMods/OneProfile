@@ -6,6 +6,8 @@ import { auth } from '@clerk/nextjs/server'
 const Navbar = async () => {
   const session = await auth()
 
+  // console.log(session)
+
   return (
     <Container>
       <Header userId={session.userId} />
