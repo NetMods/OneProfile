@@ -1,6 +1,6 @@
 const SkeletonBody = ({ profile }: { profile: string }) => {
   return (
-    <div className="flex justify-center pt-4">
+    <div className="flex justify-center pt-4 text-content/30">
       <div className="flex items-baseline gap-3">
         <svg
           fill="#c4c4c4"
