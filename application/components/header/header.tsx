@@ -15,8 +15,8 @@ const Header: React.FC<HeaderProps> = ({ userId }) => {
 
   return (
     <div className="flex flex-row justify-between items-center w-full mt-2">
-      <div className="overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-105 ">
-        <Image src="/logo.png" alt="logo" height={1} width={150} />
+      <div className="overflow-hidden ml-5 cursor-pointer transition-transform hover:scale-105 ">
+        <Image src="/logo.png" alt="logo" height={5} width={100} />
       </div>
 
       <div className="flex flex-row gap-2 mr-5">
