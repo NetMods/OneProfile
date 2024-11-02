@@ -1,33 +1,33 @@
 "use client"
 import { useTheme } from "@/hooks/useTheme";
-import { Theme } from "@/lib/constants";
-import { IoIosCheckmark} from 'react-icons/io'
-import { MdOutlineCancel } from 'react-icons/md'
+import { OPTIONS, Theme } from "@/lib/constants";
+import { RxCross2 } from "react-icons/rx";
+import { GrCheckmark } from "react-icons/gr";
 import { FiEdit } from "react-icons/fi";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import Loader from "../loader";
 
 const CardWrapper = ({
   children,
   header,
   icon,
-  iconStyles,
   type,
   onClick,
-  disabled,
-  showedloader,
+  loading,
 }: {
   children: React.ReactNode
   header: string
   icon: React.ReactNode
-  iconStyles?: string
   type: string
-  onClick?: (username: string, type: string) => void
-  disabled: boolean
-  showedloader : boolean
+  onClick: (username: string, type: string) => void
+  loading: string | null
 }) => {
   const [isEditing, setIsEditing] = useState(false)
   const { theme } = useTheme()
   const contentRef = useRef<HTMLDivElement>(null)
+
+  const disabled = loading != null && loading !== type
+  const showLoader = loading != null && loading === type
 
   useEffect(() => {
     if (!contentRef.current) return
@@ -36,19 +36,19 @@ const CardWrapper = ({
     }
   }, [])
 
-  const onSubmit = useCallback(() => {
+  const onSubmit = () => {
     setIsEditing(prev => !prev)
+
     if (isEditing && !disabled) {
-      const username = contentRef.current?.innerHTML as string
-      onClick && onClick(username, type)
+      const username = contentRef.current?.textContent as string
+      onClick(username, type)
     }
-  }, [isEditing, onClick, type, disabled])
+  }
 
   return (
     <div
-      className={`${
-        theme === Theme.LIGHT ? 'profile-border-light' : 'profile-border-dark'
-      } p-3 w-full h-60 min-w-72 ${disabled ? 'opacity-50 pointer-events-none' : ''}`}
+      className={`${theme === Theme.LIGHT ? 'profile-border-light' : 'profile-border-dark'
+        } p-3 w-full h-60 min-w-72 ${disabled ? 'opacity-50 pointer-events-none' : ''}`}
     >
       <div className="inline-flex w-full items-center justify-between">
         <div className="text-content/50 inline-flex font-bold items-center gap-3 text-xl">
@@ -62,15 +62,15 @@ const CardWrapper = ({
           </div>
           {isEditing ? (
             <div className="flex flex-row gap-2">
-              <IoIosCheckmark
-                size={35}
-                className="border rounded cursor-pointer"
+              <GrCheckmark
+                size={30}
+                className="border p-1 rounded cursor-pointer"
                 onClick={onSubmit}
               />
-              <MdOutlineCancel
-                size={35}
-                className="border rounded cursor-pointer"
-                onClick={()=>setIsEditing((prev)=>!prev)}
+              <RxCross2
+                size={30}
+                className="border p-[0.15rem] rounded cursor-pointer"
+                onClick={() => setIsEditing((prev) => !prev)}
               />
             </div>
           ) : (
@@ -80,21 +80,21 @@ const CardWrapper = ({
             />
           )}
         </div>
-        <div className={`size-10 object-contain ${iconStyles}`}>{icon}</div>
+        <div className={`size-10 object-contain ${type === OPTIONS.CODECHEF && "mr-12"}`}>{icon}</div>
       </div>
       {
-        showedloader?
-            <div className="text-content/30">{children}</div>
-            : 
-            <div className="loader"></div>
+        showLoader ?
+          <Loader />
+          :
+          <>
+            {children}
+          </>
       }
     </div>
   )
 }
 
 export default CardWrapper
-
-
 
 
 // const adjustWidth = () => {
