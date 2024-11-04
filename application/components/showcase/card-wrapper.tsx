@@ -62,9 +62,9 @@ const CardWrapper = ({
   return (
     <div
       className={`${theme === Theme.LIGHT ? 'profile-border-light' : 'profile-border-dark'
-        } p-3 w-full h-60 min-w-72 ${disabled ? 'opacity-30 pointer-events-none' : ''}`}
+        } p-3 w-full min-h-60 min-w-72 overflow-hidden ${disabled ? 'opacity-30 pointer-events-none' : ''}`}
     >
-      <div className="inline-flex w-full items-center justify-between">
+      <div className="inline-flex w-full  items-center justify-between">
         <div className="text-content/50 inline-flex font-bold items-center gap-3 text-xl">
           <div
             contentEditable={isEditing && !disabled}
@@ -101,9 +101,9 @@ const CardWrapper = ({
         showLoader ?
           <Loader />
           :
-          <>
+          <div className="flex flex-col justify-center">
             {children}
-          </>
+          </div>
       }
     </div>
   )

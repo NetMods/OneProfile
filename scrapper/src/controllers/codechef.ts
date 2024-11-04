@@ -63,7 +63,7 @@ export const codechef = async (request: Request, response: Response): Promise<an
         stars: document.querySelector('span.rating')?.textContent ?? "null",
 
         problems: {
-          total: document.querySelector('section.rating-data-section:nth-child(5) > h3:nth-child(15)')?.textContent ?? "null"
+          total: document.querySelector('section.rating-data-section:nth-child(5) > h3:nth-child(15)')?.textContent.match(/\d+/)[0] ?? "null"
         }
       }
     })
