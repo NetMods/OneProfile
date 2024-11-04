@@ -36,6 +36,20 @@ const CardWrapper = ({
     }
   }, [])
 
+  /* Sets the caret at the end of editable div */
+  useEffect(() => {
+    if (isEditing && contentRef.current) {
+      const element = contentRef.current;
+      const selection = window.getSelection();
+      const range = document.createRange()
+
+      range.selectNodeContents(element);
+      range.collapse(false);
+      selection?.removeAllRanges()
+      selection?.addRange(range)
+    }
+  }, [isEditing])
+
   const onSubmit = () => {
     setIsEditing(prev => !prev)
 
@@ -48,12 +62,13 @@ const CardWrapper = ({
   return (
     <div
       className={`${theme === Theme.LIGHT ? 'profile-border-light' : 'profile-border-dark'
-        } p-3 w-full h-60 min-w-72 ${disabled ? 'opacity-50 pointer-events-none' : ''}`}
+        } p-3 w-full min-h-60 min-w-72 overflow-hidden ${disabled ? 'opacity-30 pointer-events-none' : ''}`}
     >
-      <div className="inline-flex w-full items-center justify-between">
+      <div className="inline-flex w-full  items-center justify-between">
         <div className="text-content/50 inline-flex font-bold items-center gap-3 text-xl">
           <div
             contentEditable={isEditing && !disabled}
+            spellCheck={false}
             ref={contentRef}
             className="focus:outline-none w-fit max-w-52 px-1 caret-black"
             suppressContentEditableWarning={true}
@@ -73,7 +88,7 @@ const CardWrapper = ({
                 onClick={() => setIsEditing((prev) => !prev)}
               />
             </div>
-          ) : (
+          ) : (!showLoader &&
             <FiEdit
               className={`cursor-pointer ${disabled ? 'opacity-50' : ''}`}
               onClick={onSubmit}
@@ -86,9 +101,9 @@ const CardWrapper = ({
         showLoader ?
           <Loader />
           :
-          <>
+          <div className="flex flex-col justify-center">
             {children}
-          </>
+          </div>
       }
     </div>
   )
