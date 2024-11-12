@@ -27,7 +27,7 @@ export const leetcode = async (request: Request, response: Response): Promise<an
   });
 
   try {
-    const page = await browser.newPage();
+    const page = (await browser.pages())[0];
 
     const userAgent =
       "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36";

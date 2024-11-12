@@ -8,7 +8,8 @@ datasource db {
 }
 
 model Profile {
-  userId     String      @id @map("_id") @db.ObjectId
+  id         String      @id @default(auto()) @map("_id") @db.ObjectId
+  userId     String      @unique
   leetcode   Leetcode?
   gfg        GFG?
   codeforces Codeforces?
@@ -24,8 +25,8 @@ model Leetcode {
   badges          Int
   totalActiveDays Int
 
-  profileId String  @db.ObjectId
-  profile   Profile @relation(fields: [id], references: [userId])
+  profileId String  @unique
+  profile   Profile @relation(fields: [profileId], references: [userId])
 }
 
 model GFG {
@@ -35,8 +36,8 @@ model GFG {
   problems  Json
   languages String[]
 
-  profileId String  @db.ObjectId
-  profile   Profile @relation(fields: [id], references: [userId])
+  profileId String  @unique
+  profile   Profile @relation(fields: [profileId], references: [userId])
 }
 
 model Codeforces {
@@ -46,8 +47,8 @@ model Codeforces {
   totalProblems    String
   lastYearProblems String
 
-  profileId String  @db.ObjectId
-  profile   Profile @relation(fields: [id], references: [userId])
+  profileId String  @unique
+  profile   Profile @relation(fields: [profileId], references: [userId])
 }
 
 model CodeChef {
@@ -56,8 +57,8 @@ model CodeChef {
   stars    String
   problems Json
 
-  profileId String  @db.ObjectId
-  profile   Profile @relation(fields: [id], references: [userId])
+  profileId String  @unique
+  profile   Profile @relation(fields: [profileId], references: [userId])
 }
 
 model Striver {
@@ -66,6 +67,6 @@ model Striver {
   sde    String
   last79 String
 
-  profileId String  @db.ObjectId
-  profile   Profile @relation(fields: [id], references: [userId])
+  profileId String  @unique
+  profile   Profile @relation(fields: [profileId], references: [userId])
 }
