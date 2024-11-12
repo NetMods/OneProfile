@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import CardWrapper from '@/components/showcase/card-wrapper'
 import SkeletonBody from './skeleton-body'
 import { getSVG } from '@/lib/getSVG'
@@ -7,16 +7,20 @@ import { OPTIONS } from '@/lib/constants'
 import axios from 'axios'
 import Profiles from './profiles'
 import prisma from "db"
+import { useUser } from '@clerk/nextjs'
 
 type DataType = {
   [key: string]: Record<string, unknown>
 }
 
 const Showcase = () => {
-  const { loading, data, onClick } = useShowCaseStates()
+  const { loading, data, onClick, getUserData } = useShowCaseStates()
+
+  const session = useUser()
 
   useEffect(() => {
-  }, [])
+    getUserData(session)
+  }, [getUserData, session])
 
   const renderCard = (header: string, type: string) => (
     <CardWrapper
@@ -98,7 +102,11 @@ const useShowCaseStates = () => {
     setLoading(null)
   }
 
-  return { loading, data, onClick }
+  const getUserData = useCallback(async (session) => {
+    const { user } = session
+  }, [])
+
+  return { loading, data, onClick, getUserData }
 }
 
 export default Showcase
