@@ -1,0 +1,72 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Profile {
+  id         String      @id @default(auto()) @map("_id") @db.ObjectId
+  userId     String      @unique
+  leetcode   Leetcode?
+  gfg        Gfg?
+  codeforces Codeforces?
+  codechef   CodeChef?
+  striver    Striver?
+}
+
+model Leetcode {
+  id              String @id @default(auto()) @map("_id") @db.ObjectId
+  contest         Json
+  problems        Json
+  languages       Json
+  badges          Int
+  totalActiveDays Int
+
+  profileId String  @unique
+  profile   Profile @relation(fields: [profileId], references: [userId])
+}
+
+model Gfg {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  institute Json
+  contest   Json
+  problems  Json
+  languages String[]
+
+  profileId String  @unique
+  profile   Profile @relation(fields: [profileId], references: [userId])
+}
+
+model Codeforces {
+  id               String @id @default(auto()) @map("_id") @db.ObjectId
+  rating           String
+  maxRating        String
+  totalProblems    String
+  lastYearProblems String
+
+  profileId String  @unique
+  profile   Profile @relation(fields: [profileId], references: [userId])
+}
+
+model CodeChef {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  contest  Json
+  stars    String
+  problems Json
+
+  profileId String  @unique
+  profile   Profile @relation(fields: [profileId], references: [userId])
+}
+
+model Striver {
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  a2z    String
+  sde    String
+  last79 String
+
+  profileId String  @unique
+  profile   Profile @relation(fields: [profileId], references: [userId])
+}
