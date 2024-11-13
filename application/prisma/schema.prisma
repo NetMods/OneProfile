@@ -11,14 +11,14 @@ model Profile {
   id         String      @id @default(auto()) @map("_id") @db.ObjectId
   userId     String      @unique
   leetcode   Leetcode?
-  gfg        GFG?
+  gfg        Gfg?
   codeforces Codeforces?
   codechef   CodeChef?
   striver    Striver?
 }
 
 model Leetcode {
-  id              String @id @map("_id") @db.ObjectId
+  id              String @id @default(auto()) @map("_id") @db.ObjectId
   contest         Json
   problems        Json
   languages       Json
@@ -29,8 +29,8 @@ model Leetcode {
   profile   Profile @relation(fields: [profileId], references: [userId])
 }
 
-model GFG {
-  id        String   @id @map("_id") @db.ObjectId
+model Gfg {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
   institute Json
   contest   Json
   problems  Json
@@ -41,7 +41,7 @@ model GFG {
 }
 
 model Codeforces {
-  id               String @id @map("_id") @db.ObjectId
+  id               String @id @default(auto()) @map("_id") @db.ObjectId
   rating           String
   maxRating        String
   totalProblems    String
@@ -52,7 +52,7 @@ model Codeforces {
 }
 
 model CodeChef {
-  id       String @id @map("_id") @db.ObjectId
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
   contest  Json
   stars    String
   problems Json
@@ -62,7 +62,7 @@ model CodeChef {
 }
 
 model Striver {
-  id     String @id @map("_id") @db.ObjectId
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
   a2z    String
   sde    String
   last79 String

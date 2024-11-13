@@ -45,22 +45,48 @@ export async function POST(request: Request) {
   }
 
   if (eventType === 'user.created') {
-    try {
+    await CreateProfile(id)
+  }
 
-      await prisma.profile.create({
-        data: {
-          userId: id
-        }
-      })
-    } catch (error) {
-      console.error("Error creating user in database:", error);
-
-      if (error instanceof Error)
-        return new Response(`Error creating user ${error.message}`, { status: 500 });
-
-      return new Response(`Error creating user`, { status: 500 });
-    }
+  if (eventType === "user.deleted") {
+    await DeleteProfile(id)
   }
 
   return new Response('Done', { status: 200 })
+}
+
+
+const CreateProfile = async (id: string) => {
+  try {
+    await prisma.profile.create({
+      data: {
+        userId: id
+      }
+    })
+  } catch (error) {
+    console.error("Error creating user in database:", error);
+
+    if (error instanceof Error)
+      return new Response(`Error creating user ${error.message}`, { status: 500 });
+
+    return new Response(`Error creating user`, { status: 500 });
+  }
+}
+
+
+const DeleteProfile = async (id: string) => {
+  try {
+    await prisma.profile.delete({
+      where: {
+        userId: id
+      }
+    })
+  } catch (error) {
+    console.error("Error deleting user in database:", error);
+
+    if (error instanceof Error)
+      return new Response(`Error deleting user ${error.message}`, { status: 500 });
+
+    return new Response(`Error deleting user`, { status: 500 });
+  }
 }
